@@ -114,7 +114,7 @@ app.UseCors("AllowAngularApp");
 
 // Statik fayllarni ishlatish (rasmlar uchun)
 app.UseStaticFiles();
-// app.MapFallbackToFile("index.html");
+app.MapFallbackToFile("index.html");
 
 // Autentifikatsiya va avtorizatsiya middleware’lari
 app.UseAuthentication();
