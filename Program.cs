@@ -38,8 +38,8 @@ builder
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<IFileUploadService, CloudinaryFileUploadService>();
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-builder.WebHost.UseUrls($"http://*:{port}");
+// var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+// builder.WebHost.UseUrls($"http://*:{port}");
 
 // Google autentifikatsiyasini sozlash
 builder
@@ -114,7 +114,7 @@ app.UseCors("AllowAngularApp");
 
 // Statik fayllarni ishlatish (rasmlar uchun)
 app.UseStaticFiles();
-app.MapFallbackToFile("index.html");
+// app.MapFallbackToFile("index.html");
 
 // Autentifikatsiya va avtorizatsiya middleware’lari
 app.UseAuthentication();
