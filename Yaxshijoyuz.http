@@ -1,0 +1,6 @@
+@Yaxshijoyuz_HostAddress = http://localhost:5233
+
+GET {{Yaxshijoyuz_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
