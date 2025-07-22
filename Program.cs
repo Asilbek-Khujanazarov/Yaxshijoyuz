@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder
-                .WithOrigins("https://yaxshijoy-front-712d88a53e57.herokuapp.com")
+                .WithOrigins("https://yaxshijoy.vercel.app")
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .AllowCredentials();
@@ -37,8 +37,10 @@ builder
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<IFileUploadService, CloudinaryFileUploadService>();
+
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 builder.WebHost.UseUrls($"http://*:{port}");
+
 // Google autentifikatsiyasini sozlash
 builder
     .Services.AddAuthentication(options =>
