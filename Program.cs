@@ -54,7 +54,7 @@ builder
         options.Cookie.HttpOnly = true;
         options.Cookie.SameSite = SameSiteMode.None; // CORS uchun
         options.Cookie.SecurePolicy = CookieSecurePolicy.None; // HTTP uchun (test uchun)
-        options.Cookie.Name = "PitsaUzAuthCookie";
+        options.Cookie.Name = "YaxshijoyuzAuthCookie";
         options.Cookie.Path = "/";
         options.Cookie.IsEssential = true;
         options.ExpireTimeSpan = TimeSpan.FromDays(1);
@@ -90,9 +90,9 @@ builder.Services.AddSwaggerGen(c =>
         "v1",
         new Microsoft.OpenApi.Models.OpenApiInfo
         {
-            Title = "PitsaUz API",
+            Title = "Yaxshijoyuz API",
             Version = "v1",
-            Description = "PitsaUz loyihasi uchun API hujjatlari",
+            Description = "Yaxshijoyuz loyihasi uchun API hujjatlari",
         }
     );
 });
@@ -100,21 +100,12 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseDeveloperExceptionPage();
-    // Swagger UI ni faqat development muhitida ishlatish
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "PitsaUz API V1");
-        c.RoutePrefix = string.Empty; // Swagger UI ni asosiy URL’da ochish (http://localhost:5233/)
-    });
-}
-else
-{
-    app.UseHsts();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Yaxshijoyuz API V1");
+    c.RoutePrefix = string.Empty; // Swagger UI root’da ochiladi
+});
 
 app.UseHttpsRedirection();
 
@@ -123,7 +114,7 @@ app.UseCors("AllowAngularApp");
 
 // Statik fayllarni ishlatish (rasmlar uchun)
 app.UseStaticFiles();
-app.MapFallbackToFile("index.html");
+// app.MapFallbackToFile("index.html");
 
 // Autentifikatsiya va avtorizatsiya middleware’lari
 app.UseAuthentication();
