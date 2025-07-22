@@ -17,4 +17,4 @@ COPY --from=build /app/out .
 EXPOSE 80
 
 # Appni ishga tushurish
-ENTRYPOINT ["dotnet", "SizningLoyihangiz.dll"]
+ENTRYPOINT ["dotnet", "Yaxshijoyuz.dll"]
